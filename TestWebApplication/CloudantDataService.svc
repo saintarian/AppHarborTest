@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="TestWebApplication.CloudantDataService" CodeBehind="CloudantDataService.svc.cs" %>
