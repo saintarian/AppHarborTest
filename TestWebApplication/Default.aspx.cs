@@ -16,13 +16,11 @@ namespace TestWebApplication
 		protected void Page_Load( object sender, EventArgs e )
 		{
 			var url = ConfigurationManager.AppSettings.Get( "CLOUDANT_URL" );
-			_label.Text = url;
-			/*
 			var connection = new Connection( new Uri( url ) );
-			if ( !connection.ListDatabases().Contains( "reports" ) )
-			{
-				connection.CreateDatabase( "reports" );
-			}
+			connection.CreateDatabase( "reports" );
+			//if ( !connection.ListDatabases().Contains( "reports" ) )
+			//{
+			//}
 			var repository = new Repository<Report>( connection.CreateSession( "reports" ) );
 			var report = new Report { ID = Guid.NewGuid(), Type = 1, AccessionNumber = "123", Contents = "abcd" };
 			System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
@@ -39,7 +37,6 @@ namespace TestWebApplication
 			{
 				_label.Text = "Error";
 			}
-			*/
 		}
 	}
 }
