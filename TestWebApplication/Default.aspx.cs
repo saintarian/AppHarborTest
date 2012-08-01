@@ -17,11 +17,11 @@ namespace TestWebApplication
 		{
 			var url = ConfigurationManager.AppSettings.Get( "CLOUDANT_URL" );
 			var connection = new Connection( new Uri( url ) );
-			connection.CreateDatabase( "reports" );
-			//if ( !connection.ListDatabases().Contains( "reports" ) )
-			//{
-			//}
-			var repository = new Repository<Report>( connection.CreateSession( "reports" ) );
+			if ( !connection.ListDatabases().Contains( "gmkreports" ) )
+			{
+				connection.CreateDatabase( "gmkreports" );
+			}
+			var repository = new Repository<Report>( connection.CreateSession( "gmkreports" ) );
 			var report = new Report { ID = Guid.NewGuid(), Type = 1, AccessionNumber = "123", Contents = "abcd" };
 			System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
 			watch.Reset();
