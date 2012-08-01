@@ -16,6 +16,8 @@ namespace TestWebApplication
 		protected void Page_Load( object sender, EventArgs e )
 		{
 			var url = ConfigurationManager.AppSettings.Get( "CLOUDANT_URL" );
+			_label.Text = url;
+			/*
 			var connection = new Connection( new Uri( url ) );
 			if ( !connection.ListDatabases().Contains( "reports" ) )
 			{
@@ -37,6 +39,7 @@ namespace TestWebApplication
 			{
 				_label.Text = "Error";
 			}
+			*/
 		}
 	}
 }
